@@ -23,6 +23,9 @@ network:
 santino@scolmena-server:~$ ip a
 <details>
 <summary>Resultado del comando</summary>
+  
+```
+
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -43,7 +46,9 @@ santino@scolmena-server:~$ ip a
        valid_lft forever preferred_lft forever
     inet6 fe80::a00:27ff:fe1b:9cba/64 scope link 
        valid_lft forever preferred_lft forever
+```
 </details>
+
 
 ---
 
@@ -52,6 +57,8 @@ santino@scolmena-server:~$ ip a
 santino@scolmena-client:~$ sudo cat "/etc/NetworkManager/system-connections/Conexión cableada 2.nmconnection"
 <details>
 <summary>Contenido del archivo</summary>
+
+```
 [connection]
 id=Conexión cableada 2
 uuid=1c198e9b-7663-3249-8bb7-eeee2129a503
@@ -66,6 +73,7 @@ method=manual
 [ipv6]
 addr-gen-mode=stable-privacy
 method=auto
+```
 </details>
 
 ---
@@ -75,6 +83,8 @@ method=auto
 santino@scolmena-client:~$ ip a
 <details>
 <summary>Resultado del comando</summary>
+
+  ```
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -97,6 +107,7 @@ santino@scolmena-client:~$ ip a
        valid_lft forever preferred_lft forever
     inet6 fe80::1d07:ed13:b776:21dd/64 scope link noprefixroute 
        valid_lft forever preferred_lft forever
+```
 </details>
 
 ---
@@ -106,6 +117,8 @@ santino@scolmena-client:~$ ip a
 santino@scolmena-server:~$ sudo apt install -y postgresql-common
 <details>
 <summary>Resultado del comando</summary>
+  
+  ```
 Leyendo lista de paquetes... Hecho
 Creando árbol de dependencias... Hecho
 Leyendo la información de estado... Hecho
@@ -173,6 +186,8 @@ No containers need to be restarted.
 No user sessions are running outdated binaries.
 
 No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+```
 </details>
 
 ---
@@ -182,6 +197,8 @@ No VM guests are running outdated hypervisor (qemu) binaries on this host.
 santino@scolmena-server:~$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 <details>
 <summary>Resultado del comando</summary>
+
+  ```
 This script will enable the PostgreSQL APT repository on apt.postgresql.org on
 your system. The distribution codename used will be noble-pgdg.
 
@@ -204,6 +221,8 @@ You can now start installing packages from apt.postgresql.org.
 
 Have a look at https://wiki.postgresql.org/wiki/Apt for more information;
 most notably the FAQ at https://wiki.postgresql.org/wiki/Apt/FAQ
+
+```
 </details>
 
 ---
@@ -213,6 +232,8 @@ most notably the FAQ at https://wiki.postgresql.org/wiki/Apt/FAQ
 santino@scolmena-server:~$ sudo apt install postgresql-18
 <details>
 <summary>Resultado del comando</summary>
+
+  ```
 Leyendo lista de paquetes... Hecho
 Creando árbol de dependencias... Hecho
 Leyendo la información de estado... Hecho
@@ -309,6 +330,8 @@ No containers need to be restarted.
 No user sessions are running outdated binaries.
 
 No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+```
 </details>
 
 ---
@@ -318,7 +341,10 @@ No VM guests are running outdated hypervisor (qemu) binaries on this host.
 santino@scolmena-server:~$ psql --version
 <details>
 <summary>Resultado del comando</summary>
+  
+  ```
 psql (PostgreSQL) 18.0 (Ubuntu 18.0-1.pgdg24.04+3)
+  ```
 </details>
 
 ---
@@ -328,6 +354,8 @@ psql (PostgreSQL) 18.0 (Ubuntu 18.0-1.pgdg24.04+3)
 santino@scolmena-server:~$ sudo systemctl status postgresql
 <details>
 <summary>Resultado del comando</summary>
+  
+  ```
 ● postgresql.service - PostgreSQL RDBMS
      Loaded: loaded (/usr/lib/systemd/system/postgresql.service; enabled; preset: enabled)
      Active: active (exited) since Mon 2025-10-20 20:49:44 UTC; 5min ago
@@ -336,6 +364,7 @@ santino@scolmena-server:~$ sudo systemctl status postgresql
 
 oct 20 20:49:44 scolmena-server systemd[1]: Starting postgresql.service - PostgreSQL RDBMS...
 oct 20 20:49:44 scolmena-server systemd[1]: Finished postgresql.service - PostgreSQL RDBMS.
+```
 </details>
 
 ---
@@ -346,8 +375,11 @@ santino@scolmena-server:~$ sudo -i -u postgres
 postgres@scolmena-server:~$ psql
 <details>
 <summary>Sesión interactiva</summary>
+  
+  ```
 psql (18.0 (Ubuntu 18.0-1.pgdg24.04+3))
 Digite «help» para obtener ayuda.
+```
 </details>
 
 ---
@@ -378,9 +410,12 @@ santino@scolmena-server:~$ sudo -i -u postgres
 postgres@scolmena-server:~$ createuser --interactive --pwprompt
 <details>
 <summary>Resultado del comando</summary>
+  
+  ```
 Ingrese el nombre del rol a agregar: scolmena
 Ingrese la contraseña para el nuevo rol:
 ¿Será el nuevo rol un superusuario? (s/n) s
+```
 </details>
 
 ---
@@ -392,7 +427,10 @@ CREATE DATABASE scolmena OWNER scolmena;
 
 <details>
 <summary>Resultado</summary>
+  
+  ```
 CREATE DATABASE
+```
 </details>
 
 ---
@@ -404,13 +442,17 @@ CREATE DATABASE mvm_asgbd;
 
 <details>
 <summary>Resultado del comando</summary>
+  
+  ```
 Conectado a la base de datos «mvm_asgbd» con el usuario «scolmena».
+```
 </details>
 
 ---
 
 ### Crear tabla `mascotes`
 
+```yaml
 CREATE TABLE mascotes (
 id SERIAL PRIMARY KEY,
 num_chip VARCHAR(20),
@@ -418,10 +460,13 @@ nom VARCHAR(50),
 especie VARCHAR(30),
 descripcio TEXT
 );
-
+```
 <details>
 <summary>Resultado</summary>
+  
+  ```
 CREATE TABLE
+```
 </details>
 
 ---
@@ -494,6 +539,8 @@ SELECT * FROM mascotes;
 santino@scolmena-client:~$ sudo apt install postgresql-client -y
 <details>
 <summary>Resultado</summary>
+
+  ```
 Leyendo lista de paquetes... Hecho
 Creando árbol de dependencias... Hecho
 Leyendo la información de estado... Hecho
@@ -531,6 +578,7 @@ update-alternatives: utilizando /usr/share/postgresql/14/man/man1/psql.1.gz para
 Configurando postgresql-client (14+238) ...
 Procesando disparadores para man-db (2.10.2-1) ...
 Procesando disparadores para libc-bin (2.35-0ubuntu3.11) ...
+```
 </details>
 
 ---
@@ -540,12 +588,15 @@ Procesando disparadores para libc-bin (2.35-0ubuntu3.11) ...
 santino@scolmena-client:~$ psql -h 172.16.50.2 -U scolmena -d mvm_asgbd
 <details>
 <summary>Resultado</summary>
+  
+  ```
 Password for user scolmena: 
 psql (14.19 (Ubuntu 14.19-0ubuntu0.22.04.1), server 18.0 (Ubuntu 18.0-1.pgdg24.04+3))
 WARNING: psql major version 14, server major version 18.
          Some psql features might not work.
 SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
 Type "help" for help.
+```
 </details>
 
 ---
