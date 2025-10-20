@@ -22,3 +22,16 @@ Creando árbol de dependencias... Hecho
 Leyendo la información de estado... Hecho
 Se puede actualizar 1 paquete. Ejecute «apt list --upgradable» para verlo.
 </details> ```
+
+
+<details>
+<summary>Comando: sudo apt update</summary>
+
+bash
+[sudo] contraseña para santino: 
+Des:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+Obj:2 http://es.archive.ubuntu.com/ubuntu jammy InRelease    
+Obj:3 http://es.archive.ubuntu.com/ubuntu jammy-updates InRelease
+...
+Se puede actualizar 1 paquete. Ejecute «apt list --upgradable» para verlo.
+</details> ```
