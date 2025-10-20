@@ -3,8 +3,6 @@
 ### Configuración de red - Servidor (`/etc/netplan/50-cloud-init.yaml`)
 
 santino@scolmena-server:~$ sudo nano /etc/netplan/50-cloud-init.yaml
-<details>
-<summary>Contenido del archivo</summary>
 
 ```yaml
 network:
@@ -17,8 +15,6 @@ network:
       - "172.16.50.2/24"
       dhcp4: no
 ```
-
-</details>
 
 ---
 
