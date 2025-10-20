@@ -5,6 +5,8 @@
 santino@scolmena-server:~$ sudo nano /etc/netplan/50-cloud-init.yaml
 <details>
 <summary>Contenido del archivo</summary>
+
+```yaml
 network:
   version: 2
   ethernets:
@@ -14,6 +16,8 @@ network:
       addresses:
       - "172.16.50.2/24"
       dhcp4: no
+```
+
 </details>
 
 ---
@@ -356,13 +360,16 @@ Digite «help» para obtener ayuda.
 #### Archivo postgresql.conf
 santino@scolmena-server:~$ sudo nano /etc/postgresql/18/main/postgresql.conf
 ##### Modificación del archivo
+```yaml
 listen_addresses = '*'
-
+```
 
 #### Archivo pg_hba.conf
 santino@scolmena-server:~$ sudo nano /etc/postgresql/18/main/pg_hba.conf
 ##### Autorización de red
+```yaml
 host    all             all             172.16.50.0/24          md5
+```
 
 #### Reiniciar el Servicio Postgresql
 santino@scolmena-server:~$ sudo systemctl restart postgresql
@@ -387,7 +394,6 @@ Ingrese la contraseña para el nuevo rol:
 santino@scolmena-server:~$ psql -U scolmena -h localhost
 CREATE DATABASE scolmena OWNER scolmena;
 
-text
 <details>
 <summary>Resultado</summary>
 CREATE DATABASE
@@ -426,6 +432,7 @@ CREATE TABLE
 
 ### Insertar registros
 
+```yaml
 INSERT INTO mascotes (num_chip, nom, especie, descripcio)
 VALUES
 ('Chip1', 'Boby', 'Perro', 'Galgo, color marrón'),
@@ -433,8 +440,7 @@ VALUES
 ('Chip3', 'Luna', 'Conejo', 'Orejas largas, pelaje blanco'),
 ('Chip4', 'Rex', 'Perro', 'Pastor alemán'),
 ('Chip5', 'Nemo', 'Pez', 'Pez payaso');
-
-text
+```
 <details>
 <summary>Resultado</summary>
 INSERT 0 5
@@ -444,10 +450,12 @@ INSERT 0 5
 
 ### Consultar registros
 
+```yaml
 SELECT * FROM mascotes;
-
+```
 <details>
 <summary>Resultado</summary>
+  
 | id | num_chip | nom  | especie | descripcio                |
 |----|----------|------|---------|---------------------------|
 | 1  | Chip1    | Boby | Perro   | Galgo, color marrón       |
@@ -455,20 +463,32 @@ SELECT * FROM mascotes;
 | 3  | Chip3    | Luna | Conejo  | Orejas largas, pelaje blanco |
 | 4  | Chip4    | Rex  | Perro   | Pastor alemán             |
 | 5  | Chip5    | Nemo | Pez     | Pez payaso                |
+
+(5 rows)
+
 </details>
 
 ---
 
 ### Modificar y eliminar registros
 
+```yaml
 UPDATE mascotes SET nom='Michi 2.0' WHERE id=2;
 DELETE FROM mascotes WHERE id=4;
 SELECT * FROM mascotes;
+```
 
-text
 <details>
 <summary>Resultado</summary>
-(Muestra 4 registros actualizados tras eliminación y modificación)
+  
+| id | num_chip |    nom    | especie |          descripcio          |
+|----|----------|-----------|---------|-----------------------------|
+|  1 | Chip1    | Boby      | Perro   | Galgo, color marrón          |
+|  3 | Chip3    | Luna      | Conejo  | Orejas largas, pelaje blanco |
+|  5 | Chip5    | Nemo      | Pez     | Pez payaso                  |
+|  2 | Chip2    | Michi 2.0 | Gato    | Gato negro, ojos verdes      |
+
+(4 rows)
 </details>
 
 ---
@@ -534,37 +554,42 @@ Type "help" for help.
 
 ---
 
-### Visualización y modificación de valores (Cliente)
+### Visualización de valores (Cliente)
 
-mvm_asgbd=# SELECT * FROM mascotes;
+#### mvm_asgbd=# SELECT * FROM mascotes;
 <details>
 <summary>Resultado</summary>
-Password for user scolmena: 
-psql (14.19 (Ubuntu 14.19-0ubuntu0.22.04.1), server 18.0 (Ubuntu 18.0-1.pgdg24.04+3))
-WARNING: psql major version 14, server major version 18.
-         Some psql features might not work.
-SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-Type "help" for help.
+  
+| id | num_chip |    nom    | especie |          descripcio          |
+|----|----------|-----------|---------|-----------------------------|
+|  1 | Chip1    | Boby      | Perro   | Galgo, color marrón          |
+|  3 | Chip3    | Luna      | Conejo  | Orejas largas, pelaje blanco |
+|  5 | Chip5    | Nemo      | Pez     | Pez payaso                  |
+|  2 | Chip2    | Michi 2.0 | Gato    | Gato negro, ojos verdes      |
+
+(4 rows)
+
 </details>
 
-mvm_asgbd=# UPDATE mascotes SET nom='Michi Client' WHERE num_chip='Chip2';
+### Modificar y eliminar de valores (Cliente)
+
+#### mvm_asgbd=# UPDATE mascotes SET nom='Michi Client' WHERE num_chip='Chip2';
 UPDATE 1
-mvm_asgbd=# DELETE FROM mascotes WHERE num_chip='Chip3';
+#### mvm_asgbd=# DELETE FROM mascotes WHERE num_chip='Chip3';
 DELETE 1
 
+#### mvm_asgbd=# SELECT * FROM mascotes;
 <details>
 <summary>Resultado</summary>
-mvm_asgbd=# SELECT * FROM mascotes;
- id | num_chip |     nom      | especie |       descripcio        
-----+----------+--------------+---------+-------------------------
-  1 | Chip1    | Boby         | Perro   | Galgo, color marrón
-  5 | Chip5    | Nemo         | Pez     | Pez payaso
-  2 | Chip2    | Michi Client | Gato    | Gato negro, ojos verdes
+  
+| id | num_chip |     nom      | especie |       descripcio        |
+|----|----------|--------------|---------|-------------------------|
+|  1 | Chip1    | Boby         | Perro   | Galgo, color marrón     |
+|  5 | Chip5    | Nemo         | Pez     | Pez payaso              |
+|  2 | Chip2    | Michi Client | Gato    | Gato negro, ojos verdes |
+  
 (3 rows)
 </details>
-
-
-```
 
 
 
