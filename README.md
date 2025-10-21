@@ -374,7 +374,7 @@ oct 20 20:49:44 scolmena-server systemd[1]: Finished postgresql.service - Postgr
 #### santino@scolmena-server:~$ sudo -i -u postgres
 #### postgres@scolmena-server:~$ psql
 <details>
-<summary>Sesión interactiva</summary>
+<summary>Resultado del comando</summary>
   
   ```
 psql (18.0 (Ubuntu 18.0-1.pgdg24.04+3))
@@ -406,8 +406,8 @@ santino@scolmena-server:~$ sudo systemctl restart postgresql
 
 ### Crear usuario administrador
 
-santino@scolmena-server:~$ sudo -i -u postgres
-postgres@scolmena-server:~$ createuser --interactive --pwprompt
+#### santino@scolmena-server:~$ sudo -i -u postgres
+#### postgres@scolmena-server:~$ createuser --interactive --pwprompt
 <details>
 <summary>Resultado del comando</summary>
   
