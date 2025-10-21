@@ -52,7 +52,7 @@ santino@scolmena-server:~$ ip a
 
 ---
 
-### Configuración de red - Cliente (`Conexión cableada 2.nmconnection`)
+### Configuración de red - Cliente (`en mi caso es Conexión cableada 2.nmconnection`)
 
 santino@scolmena-client:~$ sudo cat "/etc/NetworkManager/system-connections/Conexión cableada 2.nmconnection"
 <details>
