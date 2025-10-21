@@ -1,4 +1,5 @@
-# Instalación y Configuración de PostgreSQL en Red
+# Instalación y Configuración de PostgreSQL en Red 
+### Santino Colmena - 2 ASIX
 
 ### Configuración de red - Servidor (`/etc/netplan/50-cloud-init.yaml`)
 
@@ -391,14 +392,14 @@ Digite «help» para obtener ayuda.
 ### Configurar acceso remoto
 #### Archivo postgresql.conf
 santino@scolmena-server:~$ sudo nano /etc/postgresql/18/main/postgresql.conf
-##### Modificación del archivo
+##### Modificación del archivo (Agregar linea)
 ```yaml
 listen_addresses = '*'
 ```
 
 #### Archivo pg_hba.conf
 santino@scolmena-server:~$ sudo nano /etc/postgresql/18/main/pg_hba.conf
-##### Autorización de red
+##### Autorización de red (Agregar linea)
 ```yaml
 host    all             all             172.16.50.0/24          md5
 ```
@@ -412,15 +413,12 @@ santino@scolmena-server:~$ sudo systemctl restart postgresql
 
 #### santino@scolmena-server:~$ sudo -i -u postgres
 #### postgres@scolmena-server:~$ createuser --interactive --pwprompt
-<details>
-<summary>Resultado del comando</summary>
   
   ```
 Ingrese el nombre del rol a agregar: scolmena
 Ingrese la contraseña para el nuevo rol:
 ¿Será el nuevo rol un superusuario? (s/n) s
 ```
-</details>
 
 ---
 
