@@ -43,7 +43,7 @@ santino@scolmena-server:~$ ip a
 3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
     link/ether 08:00:27:1b:9c:ba brd ff:ff:ff:ff:ff:ff
     inet 172.16.50.2/24 brd 172.16.50.255 scope global enp0s8
-       valid_lft forever preferred_lft forever
+       valid_lft forever preferred_lft foreverResultado
     inet6 fe80::a00:27ff:fe1b:9cba/64 scope link 
        valid_lft forever preferred_lft forever
 ```
@@ -404,7 +404,7 @@ santino@scolmena-server:~$ sudo systemctl restart postgresql
 
 ---
 
-### Crear usuario administrador
+### Crear usuario administrador (Con contraseña `@lumne3$$`)
 
 #### santino@scolmena-server:~$ sudo -i -u postgres
 #### postgres@scolmena-server:~$ createuser --interactive --pwprompt
