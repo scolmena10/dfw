@@ -371,8 +371,8 @@ oct 20 20:49:44 scolmena-server systemd[1]: Finished postgresql.service - Postgr
 
 ### Acceder al usuario `postgres`
 
-santino@scolmena-server:~$ sudo -i -u postgres
-postgres@scolmena-server:~$ psql
+#### santino@scolmena-server:~$ sudo -i -u postgres
+#### postgres@scolmena-server:~$ psql
 <details>
 <summary>Sesión interactiva</summary>
   
