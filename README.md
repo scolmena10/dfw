@@ -16,6 +16,10 @@ network:
       dhcp4: no
 ```
 
+### Aplicamos los cambios del NetPlan
+
+santino@scolmena-server:~$ sudo netplan apply
+
 ---
 
 ### Comprobar interfaces de red (Servidor)
